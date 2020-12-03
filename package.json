@@ -1,0 +1,20 @@
+{
+  "name": "toxic.ai",
+  "version": "1.0.0",
+  "description": "Uses AI to prevent harassment & cyberbullying on Discord.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint -c .eslintrc.json --fix commands/*.js*"
+  },
+  "author": "Rishab Jain",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "perspective-api-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}
