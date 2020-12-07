@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
 	name: 'invite',
 	description: 'Invite the bot to your Discord server.',
-	cooldown: 3,
+	cooldown: 3
 };
 
 module.exports.run = async (_, message, __) => {

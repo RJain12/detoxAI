@@ -1,12 +1,13 @@
 const { prefix, important, embedColor, footerImg, footerTxt } = require('../config.js');
 const Discord = require('discord.js');
+const { guildExist } = require('../database/firestore.js')
 
 module.exports = {
 	name: 'help',
 	description: 'Includes all commands, and information on how you can use this bot.',
 	aliases: ['commands', 'support'],
 	usage: '[command name]',
-	cooldown: 3,
+	cooldown: 3
 };
 
 module.exports.run = async (client, message, args) => {
@@ -17,13 +18,14 @@ module.exports.run = async (client, message, args) => {
 			.setDescription(`Send \`${prefix}help [command name]\` to get info on a specific command.`)
 			.addFields(
 				{ name: '<:mdAnnouncement:783042800257073183> Utility', value: '`help` `ping` `invite`', inline: true },
-				{ name: '<:YTcountry:715773844396179476> AI Mod', value: 'beta: `analyze`', inline: true },
+				{ name: '<:YTcountry:715773844396179476> AI Mod', value: '`setup` `modlogs`', inline: true },
 				{ name: 'Important Links', value: important }
 			)
 			.setTimestamp()
 			.setFooter(footerTxt, footerImg);
 		try {
 			message.channel.send(helpEmbed);
+      if (await guildExist(message.guild.id) === false)message.channel.send('This guild has not yet setup my AI auto-mod. An administrator can use the command `d!setup`.')
 		}
 		catch (error) {
 			message.reply('Please give me the `EMBED LINKS` permission.');

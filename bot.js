@@ -11,6 +11,8 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 };
 client.cooldowns = new Discord.Collection();
+const { initFirestore } = require('./database/firestore.js');
+initFirestore();
 
 const { shardReady, msg, guildCreate, voiceUp } = require('./dev/events.js');
 client.on('shardReady', async (id) => { shardReady(client, id) });

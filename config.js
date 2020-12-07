@@ -4,7 +4,7 @@ module.exports = {
     prefix: "d!",
     id: "784109092330799124",
     footerTxt: "☕ Cafe Development © 2020",
-    embedColor: 9043881,
+    embedColor: 2067276,
     errors: {
         incorrectUsage: "For more help and a detailed description of each command, `d!help`"
     },

@@ -3,7 +3,7 @@ const { inspect } = require('util');
 module.exports = {
 	name: 'eval',
 	description: 'evaluate things',
-	dev: true,
+	dev: true
 };
 module.exports.run = async (client, message, args) => {
 	try {
