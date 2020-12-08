@@ -7,8 +7,8 @@ const analyze = async (content) => {
   try {
     const result = await perspective.analyze(content);
     let obj = JSON.parse(JSON.stringify(result));
-    let toxicity = Math.round(obj.attributeScores.TOXICITY.summaryScore.value*100);
-    if (toxicity > 90) {
+    let toxicity = Math.ceil(obj.attributeScores.TOXICITY.summaryScore.value*100);
+    if (toxicity > 88) {
       return true;
     } else {
       return false;
