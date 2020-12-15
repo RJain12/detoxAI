@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
 	if (!args.length) {
 		const helpEmbed = new Discord.MessageEmbed()
 			.setColor(embedColor)
-			.setAuthor('Among Us Help Page', footerImg)
+			.setAuthor('detox.ai Help Page', footerImg)
 			.setDescription(`Send \`${prefix}help [command name]\` to get info on a specific command.`)
 			.addFields(
 				{ name: '<:mdAnnouncement:783042800257073183> Utility', value: '`help` `ping` `invite`', inline: true },
