@@ -18,7 +18,7 @@ module.exports.run = async (client, message, args) => {
 			.setDescription(`Send \`${prefix}help [command name]\` to get info on a specific command.`)
 			.addFields(
 				{ name: '<:BanHammer:785963830697263185> Utility', value: '`help` `ping` `invite`', inline: true },
-				{ name: '<:YTcountry:715773844396179476> AI Mod', value: '`setup` `modlogs`', inline: true },
+				{ name: '<:YTcountry:715773844396179476> AI Mod', value: '`setup`, `analyze`', inline: true },
 				{ name: 'Important Links', value: important }
 			)
 			.setTimestamp()
