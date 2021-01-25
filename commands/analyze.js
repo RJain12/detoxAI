@@ -1,7 +1,6 @@
 module.exports = {
   name: 'analyze',
-  description: 'analyze toxicity in a message',
-  dev: true
+  description: 'analyze toxicity in a message'
 };
 
 const { embedColor, footerImg } = require('../config.js');
