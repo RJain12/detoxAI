@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args) => {
 	}
 	const name = args[0].toLowerCase();
 	const command = client.commands.get(name) || client.commands.find(c => c.aliases && c.aliases.includes(name));
-	if (!command) { return message.reply('that\'s not a valid command! Do `am!help` for all my commands.'); }
+	if (!command) { return message.reply('that\'s not a valid command! Do `d!help` for all my commands.'); }
 
 	const alias = (command.aliases ? command.aliases.join(', ') : 'none');
 	const usage = (command.usage ? `\`${prefix}${command.name} ${command.usage}\`` : `\`${prefix}${command.name}\``);
