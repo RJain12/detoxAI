@@ -9,7 +9,7 @@ module.exports = {
 
 module.exports.run = async (client, message, args) => {
   try {
-    if (await guildExist(message.guild.id)) { message.reply('This Discord Server has already been setup. If you would like to delete your server from my database, use `d!deletemydata`. To change the logging channel, use `d!modlogs`.'); return; }
+    if (await guildExist(message.guild.id)) { message.reply('This Discord Server has already been setup. If you would like to delete your server from my database, use `d!deletemydata`.'); return; }
     message.channel.send('Welcome to **detox.ai**!\n I am a Discord robot, powered by artificial-intelligence.\n I automatically delete toxic/harassing messages from your server.\n\n> Click the `✅` emoji below to start the setup.').then(m => {
       m.react('✅');
       const filter = (reaction, user) => {
