@@ -1,6 +1,6 @@
 module.exports = {
-    token: 'Nzg0MTA5MDkyMzMwNzk5MTI0.X8kgfw.G06Kq2Olwh-biLaCrVT0Gz7XnFo',
-    api: 'AIzaSyA9ZXHTIrtHJeQoxkUgJcyQp82pTOJfvKY',
+    token: process.env.TOKEN,
+    api: process.env.API,
     prefix: "d!",
     id: "784109092330799124",
     footerTxt: "☕ Cafe Development © 2020",

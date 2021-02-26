@@ -4,12 +4,13 @@
   "description": "Uses AI to prevent harassment & cyberbullying on Discord.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npm i && node index.js",
     "lint": "eslint -c .eslintrc.json --fix commands/*.js*"
   },
   "author": "Rishab Jain",
   "license": "Apache-2.0",
   "dependencies": {
+    "@google-cloud/vision": "^2.3.1",
     "discord.js": "^12.5.1",
     "firebase-admin": "^9.4.1",
     "perspective-api-client": "^3.1.0"

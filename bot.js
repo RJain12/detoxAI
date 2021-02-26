@@ -13,6 +13,11 @@ for (const file of commandFiles) {
 client.cooldowns = new Discord.Collection();
 const { initFirestore } = require('./database/firestore.js');
 initFirestore();
+async function quickstart() {
+  const {ImageAnnotatorClient} = require('@google-cloud/vision');
+  const client = new ImageAnnotatorClient();
+}
+quickstart();
 
 const { shardReady, msg, guildCreate, voiceUp } = require('./dev/events.js');
 client.on('shardReady', async (id) => { shardReady(client, id) });
