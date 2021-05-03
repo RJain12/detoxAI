@@ -4,10 +4,9 @@ module.exports = {
 };
 
 const { embedColor, footerImg } = require('../config.js');
-const { api } = require('../config.js');
 const Perspective = require('perspective-api-client');
 const Discord = require('discord.js')
-const perspective = new Perspective({ apiKey: api });
+const perspective = new Perspective({ apiKey: process.env.API });
 
 module.exports.run = async (client, message, args) => {
     try {
@@ -18,7 +17,7 @@ module.exports.run = async (client, message, args) => {
         const embed = new Discord.MessageEmbed()
             .setColor(embedColor)
             .setAuthor('detox.ai - toxicity analyzer', footerImg)
-            .setDescription(`Your message had a toxicity level of \`${obj.attributeScores.TOXICITY.summaryScore.value * 100}\`%.`)
+            .setDescription(`Your message had a toxicity level of \`${Math.round(obj.attributeScores.TOXICITY.summaryScore.value * 10000) / 100}\`%.`)
         message.channel.send(embed);
 
     } catch (e) {

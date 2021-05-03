@@ -14,9 +14,8 @@ module.exports = {
 };
 
 const Discord = require('discord.js')
-const { api } = require('../config.js');
 const Perspective = require('perspective-api-client');
-const perspective = new Perspective({ apiKey: api });
+const perspective = new Perspective({ apiKey: process.env.API });
 
 module.exports.run = async (client, message, args) => {
     try {
