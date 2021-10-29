@@ -1,5 +1,1 @@
-node_modules/
-database/firestoreKey.json
-serviceKey.json
-replit
-config.js
+.env
