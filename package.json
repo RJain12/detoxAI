@@ -5,9 +5,29 @@
     "discord-api-types": "^0.24.0",
     "discord.js": "^13.3.0",
     "dotenv": "^10.0.0",
+    "firebase-admin": "^10.0.0",
     "statcord.js": "^3.3.0"
   },
   "devDependencies": {
     "eslint": "^8.1.0"
-  }
+  },
+  "name": "detoxai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RJain12/detoxAI.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RJain12/detoxAI/issues"
+  },
+  "homepage": "https://github.com/RJain12/detoxAI#readme",
+  "description": ""
 }

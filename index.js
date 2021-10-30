@@ -9,7 +9,7 @@ manager.on('shardCreate', shard => console.log(`Launched shard ${shard.id}`));
 manager.spawn();
 
 const statcord = new Statcord.ShardingClient({
-	key: statcord_key,
+	key: process.env.STATCORD,
 	totalShards: 'auto',
 	manager,
 });
