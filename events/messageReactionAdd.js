@@ -1,4 +1,4 @@
-const badEmojis = ['🍆', '🍑']
+const badEmojis = ['🍆', '🍑', '💦']
 const { fetchLogChannel } = require('../helper/util.js')
 const { MessageEmbed } = require('discord.js');
 

@@ -1,9 +1,18 @@
 const { isDev, fetchLogChannel } = require('../helper/util.js');
 const { MessageEmbed } = require('discord.js');
-const nsfw = require('nsfwjs')
+const deepai = require('deepai');
+
+deepai.setApiKey(process.env.DEEPAI);
+
+const analyzeImage = async (url) => {
+    var resp = await deepai.callStandardApi("content-moderation", {
+        image: url,
+    });
+    return resp;
+}
+
 const toxicity = require('@tensorflow-models/toxicity');
-const tf = require('@tensorflow/tfjs-node')
-const threshold = 0.9;
+const threshold = 0.6;
 const axios = require('axios');
 
 module.exports = {
@@ -41,34 +50,23 @@ module.exports.run = async (message, client, db) => {
     }
     if (message.attachments) {
         for (const file of message.attachments) {
-            const pic = await axios.get(file[1].proxyURL, {
-                responseType: 'arraybuffer',
-            })
-            const model = await nsfw.load()
-            const image = await tf.node.decodeImage(pic.data, 3)
-            const predictions = await model.classify(image)
-            image.dispose()
-            predictions.shift();
-            predictions.shift();
-            for (const prediction of predictions) {
-                console.log(prediction)
-                if (prediction.probability > 0.9) {
-                    await message.delete();
-                    const logChannel = await fetchLogChannel(message.guild.id);
-                    const lC = client.channels.cache.get(logChannel[0]);
-                    if (logChannel && lC) {
-                        await lC.send({
-                            embeds: [
-                                new MessageEmbed()
-                                    .setColor(7575280)
-                                    .setTitle(`Innapropriate Image Detected | Type: ${prediction.className}`)
-                                    .setDescription(`**${message.author.tag}** sent an image in <#${message.channel.id}> which was deleted!\n\nClick below to reveal link of image sent:\n||${file[1].proxyURL}||`)
-                                    .setTimestamp()
-                            ]
-                        })
-                    }
-                    return message.author.send(`:warning: Hello <@!${message.author.id}>, you sent an image classified as \`${prediction.className}\` in **${message.guild.name}**.\nPlease __refrain from these types of images__ in the future. If this seems like a mistake, try sending a different image.`);
+            const score = await analyzeImage(file[1].proxyURL);
+            if (score > 0.5) {
+                await message.delete();
+                const logChannel = await fetchLogChannel(message.guild.id);
+                const lC = client.channels.cache.get(logChannel[0]);
+                if (logChannel && lC) {
+                    await lC.send({
+                        embeds: [
+                            new MessageEmbed()
+                                .setColor(7575280)
+                                .setTitle(`Innapropriate Image Detected | Type: NSFW`)
+                                .setDescription(`**${message.author.tag}** sent an image in <#${message.channel.id}> which was deleted!\n\nClick below to reveal link of image sent:\n||${file[1].proxyURL}||`)
+                                .setTimestamp()
+                        ]
+                    })
                 }
+                return message.author.send(`:warning: Hello <@!${message.author.id}>, you sent an image classified as \`NSFW\` in **${message.guild.name}**.\nPlease __refrain from these types of images__ in the future. If this seems like a mistake, try sending a different image.`);
             }
         }
     }
