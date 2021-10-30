@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
-const { storeLog } = require('../helper/util.js')
 
 // option command name
 module.exports = {

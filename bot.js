@@ -1,12 +1,13 @@
 const fs = require('fs');
 const { Client, Collection, MessageEmbed, Permissions, Intents } = require('discord.js');
 const db = require('firebase-admin');
-const service_account = require('./fireKey.json');
+const service_account = require('./firestoreKey.json');
 
 db.initializeApp({
 	credential: db.credential.cert(service_account),
 })
 console.log('Firestore Successfully Initialized');
+
 
 const { fetchGuilds } = require('./helper/util.js')
 
@@ -36,6 +37,7 @@ const client = new Client({
      client.login(process.env.TOKEN).catch(console.error);
      console.log('Logged in successfully!');
 	 client.guildList = await fetchGuilds();
+	 console.log(`Guilds: ${client.guildList}`)
  })();
  
  const flags = ['MANAGE_MESSAGES', 'READ_MESSAGE_HISTORY', 'EMBED_LINKS', 'ADD_REACTIONS', 'USE_EXTERNAL_EMOJIS', 'SEND_MESSAGES'];
