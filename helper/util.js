@@ -21,4 +21,9 @@ module.exports.fetchLogChannel = async (guildId) => {
     return data.exists ? data.data().logChannel : false;
 }
 
+module.exports.fetchGuilds = async () => {
+    const data = await ref.doc('guilds').get()
+    return data.data().guilds;
+}
+
 module.exports.isDev = (message) => devs.includes(message.author.id);

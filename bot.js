@@ -8,6 +8,8 @@ db.initializeApp({
 })
 console.log('Firestore Successfully Initialized');
 
+const { fetchGuilds } = require('./helper/util.js')
+
 const bot_intents = new Intents();
 bot_intents.add('GUILDS', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS');
 
@@ -33,6 +35,7 @@ const client = new Client({
  (async () => {
      client.login(process.env.TOKEN).catch(console.error);
      console.log('Logged in successfully!');
+	 client.guildList = await fetchGuilds();
  })();
  
  const flags = ['MANAGE_MESSAGES', 'READ_MESSAGE_HISTORY', 'EMBED_LINKS', 'ADD_REACTIONS', 'USE_EXTERNAL_EMOJIS', 'SEND_MESSAGES'];
