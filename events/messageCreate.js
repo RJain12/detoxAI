@@ -8,12 +8,11 @@ const analyzeImage = async (url) => {
     var resp = await deepai.callStandardApi("content-moderation", {
         image: url,
     });
-    return resp;
+    return resp.output.nsfw_score;
 }
 
 const toxicity = require('@tensorflow-models/toxicity');
 const threshold = 0.6;
-const axios = require('axios');
 
 module.exports = {
     name: 'messageCreate',
@@ -72,9 +71,8 @@ module.exports.run = async (message, client, db) => {
     }
     if (message.content.startsWith(`<@!784109092330799124>`)) return message.reply('Detox is a slash-command Discord bot.\nType `/help` and select Detox to get started!');
 
-    if (!message.content.startsWith('>')) return;
-    if (!isDev(message)) return;
-    const args = message.content.slice('>'.length).trim().split(/ +/);
+    if (!message.content.startsWith('d!')) return;
+    const args = message.content.slice('d!'.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
     const command = client.devcmds.get(commandName) || client.devcmds.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
     if (!command) return;

@@ -7,6 +7,7 @@ module.exports = {
 
 module.exports.run = async (message, client, args, db) => {
 	try {
+		if (!util.isDev(message)) return;
 		if (message.content.includes('.env')) return message.reply('Returned due to attempt to access environment variables.');
 		let evaled
 		if (args[0] !== 'await') {
