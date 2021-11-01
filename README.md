@@ -24,5 +24,10 @@ To self-host the bot, you would need to create the following environmental varia
 As well as the following file:
 - `firestoreKey.json`: a service account key to your [Firestore](https://cloud.google.com/firestore) database.
 
+# Features
+- Uses TensorflowJS's Toxicity model to delete toxic Discord messages.
+- Deletes small set of blacklisted reactions on messages.
+- Deletes images detected as NSFW by DeepAI's image API.
+
 # Credits
 Rishab Jain (RJain12), Avighnash Kumar, Rushil Srirambhatla
