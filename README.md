@@ -1,0 +1,28 @@
+# detoxAI
+A simple AI-powered moderation Discord Bot! PRs & issues are welcome :)
+
+# Quickstart
+You can either install the bot into your Discord community, or self-host a version of the bot. We would **recommend installing our instance of the bot** as it is already configured with our database and is more reliable.
+
+**Invite/Install here:** https://dsc.gg/detox
+
+After inviting the bot, run the `/setup` command and you're done!
+
+Alternatively, you can self-host the bot (complicated).
+
+To self-host the bot, you would need to create the following environmental variables:
+
+```
+{
+  "TOKEN": "your discord bot token",
+  "STATCORD": "statcord token (optional)",
+  "ID": "bot client ID",
+  "DEEPAI": "deepAI API key"
+}
+```
+
+As well as the following file:
+- `firestoreKey.json`: a service account key to your [Firestore](https://cloud.google.com/firestore) database.
+
+# Credits
+Rishab Jain (RJain12), Avighnash Kumar, Rushil Srirambhatla
