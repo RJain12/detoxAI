@@ -25,7 +25,7 @@ const client = new Client({
 		activities: [{
 			name: '/help | Click Me!',
 			type: 'STREAMING',
-			url: 'https://youtu.be/zYD2VBgabX8',
+			url: 'https://www.youtube.com/watch?v=zYD2VBgabX8',
 		}],
 	},
 });
