@@ -24,7 +24,7 @@ As well as the following file:
 
 To obtain the firestoreKey.json file, you need to follow these steps:
 
-1. to the Firebase Console and select your project.
+1. to the [Firebase Console](https://console.firebase.google.com/) and select your project.
 2. Click on the gear icon in the top left corner and select "Project settings".
 3. In the "Project settings" page, go to the "Service accounts" tab.
 4. Scroll down to the section titled "Firestore Database Admin SDK" and click on "Generate new private key".
