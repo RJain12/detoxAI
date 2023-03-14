@@ -13,12 +13,10 @@ Alternatively, you can self-host the bot (complicated).
 To self-host the bot, you would need to create the following environmental variables:
 
 ```
-{
-  "TOKEN": "your discord bot token",
-  "STATCORD": "statcord token (optional)",
-  "ID": "bot client ID",
-  "DEEPAI": "deepAI API key"
-}
+  TOKEN=your discord bot token,
+  STATCORD=statcord token (optional),
+  ID=bot client ID,
+  DEEPAI=deepAI API key
 ```
 
 As well as the following file:
